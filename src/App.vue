@@ -157,13 +157,13 @@ export default {
         var rate = response.data
         console.log(rate)
         if (cur2 == 'USD') {
-          uv.amount21 = (amt1 * rate.USD) + ((myRate/100) * rate.USD)
+          uv.amount21 = ((amt1 * rate.USD) + ((myRate/100) * rate.USD)).toFixed(2)
         } else if (cur2 == 'EUR') {
-          uv.amount21 = (amt1 * rate.EUR) + ((myRate/100) * rate.EUR)
+          uv.amount21 = ((amt1 * rate.EUR) + ((myRate/100) * rate.EUR)).toFixed(2)
         } else if (cur2 == 'GBP') {
-          uv.amount21 = (amt1 * rate.GBP) + ((myRate/100) * rate.GBP)
+          uv.amount21 = ((amt1 * rate.GBP) + ((myRate/100) * rate.GBP)).toFixed(2)
         } else {
-          uv.amount21 = (amt1 * rate.NGN) + ((myRate/100) * rate.NGN)
+          uv.amount21 = ((amt1 * rate.NGN) + ((myRate/100) * rate.NGN)).toFixed(2)
         }
         uv.busy = false
       }).catch(error => {
