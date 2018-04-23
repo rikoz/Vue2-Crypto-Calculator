@@ -155,7 +155,7 @@ export default {
       API.get('/price?fsym=' + cur1 + '&tsyms=' + cur2)
       .then(response => {
         var rate = response.data
-        console.log(rate)
+        //console.log(rate)
         if (cur2 == 'USD') {
           uv.amount21 = ((amt1 * rate.USD) + ((myRate/100) * rate.USD)).toFixed(2)
         } else if (cur2 == 'EUR') {
@@ -170,7 +170,7 @@ export default {
         uv.msg = "Network Error!!.. Check device connectivity"
         uv.busy = false
         uv.toast()
-        console.log(error)
+
       })
     },
     getCryptoVal() {
@@ -184,22 +184,22 @@ export default {
       API.get('/price?fsym=' + cur1 + '&tsyms=' + cur2)
       .then(function(response) {
         var rate = response.data
-        console.log(rate)
+        //console.log(rate)
         if (cur2 == 'USD') {
-          uv.amount11 = (amt2 / rate.USD) - ((myRate/100) * (amt2 / rate.USD))
+          uv.amount11 = ((amt2 / rate.USD) - ((myRate/100) * (amt2 / rate.USD))).toFixed(8)
         } else if (cur2 == 'EUR') {
-          uv.amount11 = (amt2 / rate.EUR) - ((myRate/100) * (amt2 / rate.EUR))
+          uv.amount11 = ((amt2 / rate.EUR) - ((myRate/100) * (amt2 / rate.EUR))).toFixed(8)
         } else if (cur2 == 'GBP') {
-          uv.amount11 = (amt2 / rate.GBP) - ((myRate/100) * (amt2 / rate.GBP))
+          uv.amount11 = ((amt2 / rate.GBP) - ((myRate/100) * (amt2 / rate.GBP))).toFixed(8)
         } else {
-          uv.amount11 = (amt2 / rate.NGN) - ((myRate/100) * (amt2 / rate.NGN))
+          uv.amount11 = ((amt2 / rate.NGN) - ((myRate/100) * (amt2 / rate.NGN))).toFixed(8)
         }
         uv.busy = false
       }).catch(function(error) {
         uv.msg = "Network Error!!.. Check device connectivity"
         uv.busy = false
         uv.toast()
-        console.log(error)
+
       })
     }
   },
@@ -211,6 +211,6 @@ export default {
 
 <style lang="scss">
 .logo {
-  width: 250px;
+  width: 200px;
 }
 </style>
